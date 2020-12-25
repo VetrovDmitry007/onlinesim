@@ -6,16 +6,19 @@ from time import sleep
 Парсинг СМС собщений с сайта www.onlinesim.ru
 """
 
-headers={
-"Host": "www.onlinesim.ru",
-"Connection": "keep-alive",
-"Accept": "application/json, text/plain, */*",
-"User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36 OPR/64.0.3417.92",
-"Sec-Fetch-Mode": "cors",
-"Sec-Fetch-Site": "same-origin",
-"Referer": "https://www.onlinesim.ru/",
-"Accept-Encoding": "gzip, deflate, br",
-"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+headers = {
+    'Host': 'onlinesim.ru',
+    'Connection': 'keep-alive',
+    'Cache-Control': 'max-age=0',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'Sec-Fetch-Site': 'none',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-User': '?1',
+    'Sec-Fetch-Dest': 'document',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
 }
 
 gl_ls_msg=[]
@@ -54,6 +57,7 @@ def ListPhone():
     print(f'Выбран номер: {dic["numbers"][n-1]["full_number"]}')
     print('****************************')
     return dic["numbers"][n-1]["number"]
+
 
 if __name__=='__main__':
     number=ListPhone()
